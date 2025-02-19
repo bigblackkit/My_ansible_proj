@@ -1,0 +1,29 @@
+
+---
+- name: Copy Files
+  hosts: server1
+#become
+
+  vars:
+    folder1: /home/kit/ansible/html
+    folder2: /var/www/html
+
+  tasks:
+  - name: Copy each file over that matches the given pattern
+    ansible.builtin.copy:
+      src: "{{item}}"
+      dest: "{{folder2}}"
+      owner: "root"
+      mode: 0644
+    with_fileglob:
+      - "{{folder1}}/*"  
+
+    notify:
+          - Restart Apache2
+
+  handlers:
+  - name: Restart Apache2
+    ansible.builtin.service:
+      name: apache2
+      state: restarted
+

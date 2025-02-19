@@ -1,0 +1,26 @@
+
+
+---
+- name: Upload my Web Page or Update
+  
+  hosts: servers
+  
+  vars:
+    file1: /home/kit/ansible/simpl.j2
+    file2: /var/www/html
+
+  tasks:
+
+  - name:  Generate index file
+    ansible.builtin.template:
+      src: "{{file1}}"
+      dest: "{{file2}}/index.html"
+      mode: 0555
+    notify:
+        - Restart Apache2
+
+  handlers:
+  - name: Restart Apache2
+    ansible.builtin.service: 
+      name: apache2
+      state: restarted

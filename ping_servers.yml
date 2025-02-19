@@ -1,0 +1,9 @@
+
+---
+- name: Test Connection ti my servers
+  hosts: servers
+  #become: yes
+  tasks:
+  - name: Ping my servers
+    ping:
+

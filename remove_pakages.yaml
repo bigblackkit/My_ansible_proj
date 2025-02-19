@@ -1,0 +1,15 @@
+
+---
+- name: Remove packages
+  hosts: servers
+  become: yes 
+  tasks:
+
+  - name: Start remove
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: absent
+    loop:
+       - net-tools
+       - tree
+       - zabbix-agent

@@ -1,0 +1,31 @@
+
+---
+- name: Ansible err example
+  hosts: servers
+#  any_errors_fatal: True
+  #become: yes
+
+
+  tasks:
+
+  - name : First
+    apt:
+     name: treeee
+     state: latest
+    ignore_errors: yes
+
+
+  - name: Second
+    shell: echo Hello World!
+    register: results
+   # failed_when: "'World' in results.stdout"
+    ignore_errors: yes
+    failed_when: results.rc == 0
+  - debug:
+      var: results
+
+  - name: Third
+    shell: cat /home/kit/123.txt
+    register: results
+  - debug:
+      var: results

@@ -1,0 +1,4 @@
+---
+# vars file for deploy_apache_web
+folder1: /home/kit/ansible/html    
+folder2: /var/www/html

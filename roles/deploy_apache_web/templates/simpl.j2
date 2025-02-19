@@ -1,0 +1,22 @@
+<!DOCTYPE html> <html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример HTML-документа</title>
+<link href="snow.min.css" rel="stylesheet">
+</head>
+<body bgcolor="purple">
+<script src="Snow.js"></script>
+<script>
+	new Snow ();
+</script>
+<CENTER>
+<br><br><br><br>
+<br><br><br><br>
+    <font color="gold">Owner of this Server is: {{owner}}<br>
+    <font color="green"><h1 ALIGN="Center">Заголовок страницы</h1>
+    <font color="gold"><p ALIGN="Center">Это пример простого HTML-документа.</p>
+Server Host Name : {{ansible_hostname}}<br>
+Server OS Family is: {{ansible_os_family}}<br>
+IP Addres of this Server is: {{ansible_default_ipv4.address}}<br> 
+</body>
+</html>

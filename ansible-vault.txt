@@ -1,0 +1,27 @@
+ansible-vault create secret.txt
+
+ansible-vault viev secret.txt
+
+ansible-vault edit secret.txt
+
+ansible-vault rekey secret.txt
+
+ansible-vault encrypt secret_playbook.yml
+
+ansible-vault decrypt secret_playbook.yml
+
+#Запуск зашифрованного плейбука
+ansible-playbook secret_playbook.yml --ask-vault-pass
+
+#Если пароль храниться в файле(не зашифрованном)
+ansible-playbook secret_playbook.yml --vault-password-file PasswordForVault.txt
+
+#Шифрование строки (например нужно зашифровать только пароль в плейбуке)
+#после ввода пароля Попрросит ввести строку, после ввода строки (CTRL+D)
+#Результат используем в плейбуке вместо пароля, запускаем как зашифрованный плейбук
+# НЕ ШИФРУЙ РАЗНЫЕ СТРОКИ РАЗНЫМИ ПАРОЛЯМИ !!!
+ansible-vault encrypt_string 
+
+#Тоже шифрование строки только удобнее
+echo -n "SECRETWORD" | ansible-vault  encript_string
+

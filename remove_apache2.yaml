@@ -1,0 +1,9 @@
+
+---
+- name : Remove apache2
+ #become: true
+  hosts: servers
+  tasks:
+    - name: Remove Apache2
+      apt: name=apache2 autoremove=yes state=absent
+

@@ -1,0 +1,15 @@
+
+---
+- name: Install packages
+  hosts: servers
+  become: yes 
+  tasks:
+
+  - name: Start install
+    ansible.builtin.apt:
+      name: "{{ item }}"
+      state: latest
+    loop:
+       - net-tools
+       - tree
+       - zabbix-agent

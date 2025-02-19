@@ -1,0 +1,52 @@
+
+
+---
+- name: Upload my Web Page or Update
+  
+  hosts: servers
+  
+  vars:
+    file1: /home/kit/ansible/simpl.html
+    file2: /var/www/html
+
+  tasks:
+
+  - name: Copy
+    ansible.builtin.copy:
+      src: "{{file1}}"
+      dest: "{{file2}}"
+      mode: 0555
+    notify:
+        - Restart Apache2
+
+  handlers:
+  - name: Restart Apache2
+    ansible.builtin.service: 
+      name: apache2
+      state: restarted
+
+
+
+
+
+#become: yes
+
+#  vars:
+
+ #   source_file: /home/kit/ansible/simpl.html
+  #  destin_file: /var/www/html
+
+ # tasks:
+  #- name: Copy/Update
+   # copy: 
+    #  src: "{{home/kit/ansible/simple.html}}"
+# "{{sourse_file}}" 
+     # dest: "{{var/www/html}}"
+# "{{destin_file}}" 
+      #mode: 0555
+      #notify: 
+       # - Restart Apache2
+
+  #handlers:
+  #- name: Restart Apache2
+   # service: name=apache2 state=restarted
