@@ -1,0 +1,24 @@
+
+---
+- name: Status
+  hosts: servers
+  become: yes
+
+
+  tasks:
+
+
+  - name: Status Apache
+    shell: systemctl status apache2
+    register: results
+    failed_when: "'Active: inactive (dead)' in results.stdout"
+    ignore_errors: yes
+
+  - debug:
+     msg: "Apache DOWN"
+    when: "'Active: inactive (dead)' in results.stdout"
+
+  - debug:
+     msg: "Apache UP"
+    when: "'Active: active (running)' in results.stdout"
+
