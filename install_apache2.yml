@@ -1,7 +1,7 @@
 
 ---
 - name: Install default Apache Web Server
-  hosts: servers
+  hosts: server2
   #become: yes
 
 

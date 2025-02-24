@@ -1,0 +1,6 @@
+- name : Remove Gitlab
+ #become: true
+  hosts: server1
+  tasks:
+    - name: Remove gitlab
+      apt: name=gitlab-ce autoremove=yes state=absent

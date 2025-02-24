@@ -36,7 +36,7 @@
            state: latest
 
        - name: Add a group docker to a user
-         shell: sudo usermod -aG docker kit
+         shell: sudo usermod -aG docker $USER
 
        - name: Send hello to Docker
          shell: docker run hello-world  
