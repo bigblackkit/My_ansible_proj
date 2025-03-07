@@ -1,8 +1,8 @@
 
 ---
-#ansoble_user                 : kit
-#ansible_ssh_private_key_file : /home/kit/.ssh/kit_ans
-ansible_user                 : root
-ansible_ssh_private_key_file : /home/kit/.ssh/Ans
+ansoble_user                 : kit
+ansible_ssh_private_key_file : /home/kit/.ssh/kit_ans
+#ansible_user                 : root
+#ansible_ssh_private_key_file : /home/kit/.ssh/Ans
 contur                       : PROD
 owner                        : Kit

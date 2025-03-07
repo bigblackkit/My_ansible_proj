@@ -1,7 +1,7 @@
 
 ---
 - name: Test Connection ti my servers
-  hosts: servers
+  hosts: k8s_servers
   #become: yes
   tasks:
   - name: Ping my servers
